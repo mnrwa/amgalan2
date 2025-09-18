@@ -25,14 +25,8 @@ export default function LoginPage() {
     };
 
     try {
-      // Имитация запроса к API
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      // Здесь должен быть реальный запрос к вашему бэкенду
-      // const response = await fetch('/api/auth/login', {...});
-      // const data = await response.json();
-
-      // Временные тестовые данные
       if (credentials.login === "admin" && credentials.password === "admin") {
         login("mock-jwt-token", {
           id: 1,
@@ -53,16 +47,16 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
-        <h1 className="text-3xl font-bold text-center text-gray-800 mb-2">
+    < >
+      <div className={styles.container} >
+        <h1>
           Вход в систему
         </h1>
         <p className="text-gray-600 text-center mb-8">
           Введите ваши учетные данные
         </p>
 
-        <Form className="space-y-6" onSubmit={onSubmit}>
+        <Form className={styles.form} onSubmit={onSubmit} >
           {error && (
             <div className="bg-red-50 text-red-700 p-3 rounded-lg text-sm">
               {error}
@@ -104,6 +98,6 @@ export default function LoginPage() {
           </p>
         </div>
       </div>
-    </div>
+    </>
   );
 }
